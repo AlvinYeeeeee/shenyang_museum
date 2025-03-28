@@ -1,0 +1,35 @@
+services:
+  server:
+    image: rag-it
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+    depends_on:
+      - ollama
+    volumes:
+      - ./:/workspace/rag-it
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    command: [ "serve",]
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    # command: >
+    #   /bin/bash -c "
+    #   ollama start &&
+    #   ollama pull qwen2.5:0.5b
+    #   "
+
+
+

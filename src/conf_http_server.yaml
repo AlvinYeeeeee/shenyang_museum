@@ -1,0 +1,15 @@
+conf_http_server:
+  device: "cuda:0" # "cuda:0" or "cpu"
+  tts_speed: 1.0 # text to speech speaker speed
+  delete_audio_file_after_seconds: 120 # After number of seconds, delete the generated audio file, if it is set to -1, will not delete
+  stt_model_path: "/workspace/Models/whisper-large-v3-turbo" # Path to the whisper-large-v3-turbo model
+  embedding_model_path: "/workspace/Models/bge-large-zh-v1.5" # Path to the bge-large-zh-v1.5 model for text embedding
+  llm_mode: ollama
+  ollama_url: "http://localhost:11434" # Ollama URL for LLM chatbot
+
+  text_path: "data/text/shenyang.txt" # Path to the museum commentary text file
+  dir_path: "data/explanations" # Directory to the museum commentary text files 
+  audio_path: "data/audio/" # Path to the museum commentary audio files
+  response_audio_dir: "/workspace/rag-it/response_audios" # Directory to store the response audios
+  
+  
