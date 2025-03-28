@@ -1,4 +1,4 @@
-# rag-it
+# 沈阳博物馆
 
 ## Configuration
 Edit the `src/conf_http_server.yaml` to set the model path, text file path, et.al.
